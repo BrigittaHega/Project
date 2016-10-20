@@ -2,6 +2,8 @@
 using namespace std;
 
 void mainMenu();
+void mahogany();
+void moss();
 
 int main()
 {
@@ -27,14 +29,14 @@ int main()
 	// Display the membership fees.
 		switch (choice)
 		{
-			case LONGAN_CHOICE:
-//			showFees(ADULT, months);
+			case LONGAN_CHOICE: //(?)
+//			(ADULT, months);
 			break;
 			case MAHOGANY_CHOICE:
-//			showFees(CHILD, months);
+			mahogany();
 			break;
 			case MOSS_CHOICE:
-//			showFees(SENIOR, months);
+			moss();
 		}
 	}
 	while (choice != QUIT_CHOICE);
@@ -49,6 +51,21 @@ void mainMenu()
 	<<"1. Longan trees\n"
 	<<"2. Mahogany trees\n"
 	<<"3. Moss\n"
+//	<<"4. Questionnaire\n" (????)
 	<<"The one you choose is: ";
 }
 
+void mahogany()
+{
+	
+}
+
+void moss()
+{
+	cout<<"Description:\n";
+	cout<<"Moss is a plant that has leaves and roots but it was imperfect or \nit has not fully developed yet"<<
+	endl<<"It can grows on everywhere. On trees or on rocks, mostly on place that always(?) wet.\n"<<
+	endl<<"How it helps polution:"<<
+	endl<<"The more moss grows on trees, the more cleaner the air around it. It basically \nnature measurement for clean air."
+	<<endl<<""<<endl;
+}
