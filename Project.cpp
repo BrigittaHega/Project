@@ -5,6 +5,7 @@ using namespace std;
 void mainMenu();
 void mahogany();
 void moss();
+void papyrus();
 
 int main()
 {
@@ -13,7 +14,8 @@ int main()
 	const int PAPYRUS_CHOICE = 1,
     MAHOGANY_CHOICE = 2,
     MOSS_CHOICE = 3,
-    QUIT_CHOICE = 4;
+    QUESTION_CHOICE = 4,
+    QUIT_CHOICE = 5;
 	
 	do
 	{
@@ -39,6 +41,7 @@ int main()
 			break;
 			case MOSS_CHOICE:
 			moss(); // called moss function
+			break;
 		}
 	}
 	while (choice != QUIT_CHOICE);
@@ -54,7 +57,8 @@ void mainMenu() //The main menu function
 	<<"2. Mahogany trees\n"
 	<<"3. Moss\n"
 //	<<"4. Questionnaire\n" (????)
-	<<"Choose with numbers between 1, 2, 3, and 4."
+	<<"5. Quit\n"
+	<<"Choose with numbers between 1, 2, 3, 4, and 5."
 	<<"The one you choose is: ";
 }
 
@@ -64,8 +68,9 @@ void papyrus() //Contains short information about papyrus plant
 	<<"Papyrus ia a tree that looks like a fan and can grow until "
 	<<"It grows on the riverbank and count as one of the fastest growing plants .\n"<<
 	endl<<"How it helps polution:"<<
-	endl<<"It absorb heavy pollutan .\n"
-	<<"It also store water and absorb pollutan."<<endl<<endl;
+	endl<<"It absorb heavy pollutan inside water.\n"<<
+	endl<<"Other known function: \n"
+	<<""<<endl<<endl;
 }
 
 void mahogany() //Contains short information about mahogany tree
