@@ -1,17 +1,22 @@
 #include <iostream>
 using namespace std;
 
+struct Project
+{
+	int choice; //Connected to cin to input which choices do you pick
+	int choice2;
+};
+
 //This is for functions for it capable to put under int main().
 void mainMenu();
 void mahogany();
 void moss();
 void papyrus();
-void question(int);
+void question(Project);
 
 int main()
 {
-	int choice; //Connected to cin to input which choices do you pick
-	int choice2;
+	Project project;
 	
 	const int PAPYRUS_CHOICE = 1,
     MAHOGANY_CHOICE = 2,
@@ -22,18 +27,18 @@ int main()
 	do
 	{
 		mainMenu(); //called main menu function
-		cin >> choice;
+		cin >> project.choice ;
 		
-		while (choice < PAPYRUS_CHOICE || choice > QUIT_CHOICE) 
-		// This will happen if you input neither between papyrus choice to quit choice
+		while (project.choice < PAPYRUS_CHOICE || project.choice > QUIT_CHOICE) 
+		// This will happen if you input neither between papyrus choice to quit choice in number
 		{
 			cout << "Please enter a valid menu choice: ";
-			cin >> choice;
+			cin >> project.choice;
 		}
-		if (choice != QUIT_CHOICE)
+		if (project.choice != QUIT_CHOICE)
 	
 	// Display the membership fees.
-		switch (choice)
+		switch (project.choice)
 		{
 			case PAPYRUS_CHOICE: //(?)
 			papyrus(); //Called papyrus function
@@ -45,10 +50,10 @@ int main()
 			moss(); // called moss function
 			break;
 			case QUESTION_CHOICE:
-			question(choice2);
+			question(project);
 		}
 	}
-	while (choice != QUIT_CHOICE);
+	while (project.choice != QUIT_CHOICE);
 	return 0;
 }
 
@@ -100,122 +105,255 @@ void moss()//Contains short information about moss plant
 	<<"It also store water and absorb pollutan in air."<<endl<<endl;
 }
 
-void question(int choice2)
+void question(Project pro)
 {
-	cout<<"There is ten questions you need to answer. If you manage to answer all correctly, then you are paying attention to what written in the post.\n\n ";
+	cout<<"There is ten questions you need to answer. If you manage to answer all correctly, then you are paying attention to what written in the post.\n"
+	<<"Remember: there is no win or lose in this questionnaire. We just want to test your skill.\n\n ";
 	cout<<"First, how tall Mahogany trees could grow?\n"
 	<<"1. 35-40 meters\n"
 	<<"2. 55-60 meters\n"
 	<<"Enter your answer in number:";
-	cin>>choice2;
+	cin>>pro.choice2;
 	
-	if (choice2 == 1)
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer correctly. On to the next question.";
-	}
-	else if (choice2 == 2 )
-	{
-		cout<<"You answer wrong. Try harder in the next question\n";
-	}
-	if (choice2<1||choice2>2)
-	{
-		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
+		if (pro.choice2 == 1)
+		{
+			cout<<"You answer correctly. On to the next question.\n";
+		}
+		else if (pro.choice2 == 2 )
+		{
+			cout<<"You answer wrong. Try harder in the next question\n";
+		}
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2;
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+		}
 	}
 	
-	cout<<"Second, can moss grow flower and fruit?"
-	<<"1. Yes.\n2. No."
+	cout<<"Second, can moss grow flower and fruit?\n"
+	<<"1. Yes.\n2. No.\n"
 	<<"Enter your answer in number:";
-	cin>>choice2;
+	cin>>pro.choice2;
 	
-	if (choice2 == 1)
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer wrong. Try harder in the next question\n";
+		if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2;
+			cout<<"\nDon't enter wrong again.\n";
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+		}
 	}
-	else if (choice2 == 2 )
+	
+	
+	
+	cout<<"Third, on what kind of enviroment can mahogany trees grow?\n"
+	<<"1. It has to be on fertile ground\n"
+	<<"2. It can grow on coarse ground or near the beach with briny water\n"
+	<<"Enter your answer in number: ";
+	cin>>pro.choice2;
+	
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer correctly. On to the next question.\n";
-	}
-	if (choice2<1||choice2>2)
-	{
+		if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+			cout<<"You answer correctly. On to the next question.\n";
+			}
+		if (pro.choice2<1||pro.choice2>2)
+		{
 		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
+		cin>>pro.choice2;
+		cout<<"\nDon't enter wrong again.\n";
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+			cout<<"You answer correctly. On to the next question.\n";
+			}
+		}
 	}
 	
-	cout<<"Third, on what kind of enviroment can mahogany trees grow?"
-	<<"1. It has to be on fertile ground"
-	<<"2. It can grow on coarse ground or near the beach with briny water"
-	<<"Enter your answer in number:";
-	cin>>choice2;
 	
-	if (choice2 == 1)
-	{
-		cout<<"You answer wrong. Try harder in the next question\n";
-	}
-	else if (choice2 == 2 )
-	{
-		cout<<"You answer correctly. On to the next question.\n";
-	}
-	if (choice2<1||choice2>2)
-	{
-		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
-	}
 	
 	cout<<"Fourth, which plant CAN NOT filter polutan in air?"
 	<<"1. Papyrus.\n2. Moss."
 	<<"Enter your answer in number:";
-	cin>>choice2;
+	cin>>pro.choice2;
 	
-	if (choice2 == 1)
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer correctly. On to the next question.";
+		if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.";
+			}
+			else if (pro.choice2 == 2 )
+			{
+			cout<<"You answer wrong. Try harder in the next question\n";
+			}
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2 ;
+		
+		
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.";
+			}
+			else if (pro.choice2 == 2 )
+			{
+			cout<<"You answer wrong. Try harder in the next question\n";
+			}
+		}
+		
 	}
-	else if (choice2 == 2 )
-	{
-		cout<<"You answer wrong. Try harder in the next question\n";
-	}
-	if (choice2<1||choice2>2)
-	{
-		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
-	}
+	
+	
 	
 	cout<<"Fifth, where moss could grow?"
 	<<"1. On wet rainy area.\n2. Everywhere except dry place."
 	<<"Enter your answer in number:";
-	cin>>choice2;
+	cin>>pro.choice2;
 	
-	if (choice2 == 1)
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer wrong. Try harder in the next question\n";
-	}
-	else if (choice2 == 2 )
-	{
-		cout<<"You answer correctly. On to the next question.\n";
-	}
-	if (choice2<1||choice2>2)
-	{
+		if (pro.choice2 == 1)
+		{
+			cout<<"You answer wrong. Try harder in the next question\n";
+		}
+		else if (pro.choice2 == 2 )
+		{
+			cout<<"You answer correctly. On to the next question.\n";
+		}
+		if (pro.choice2<1||pro.choice2>2)
+		{
 		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
+		cin>>pro.choice2 ;
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+		
+		}
 	}
 	
 	cout<<"Sixth, what kind of medicine can mahogany fruit heal?"
 	<<"1. reduce cholestrol.\n2. reduce nausea."
 	<<"Enter your answer in number:";
-	cin>>choice2;
+	cin>>pro.choice2;
 	
-	if (choice2 == 1)
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer correctly. On to the next question.\n";
+		if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}	
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2 ;	
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+		
+		}
 	}
-	else if (choice2 == 2 )
+	
+	cout<<"Seven, which plant can grow the fastest?"
+	<<"1. moss.\n2. Papyrus."
+	<<"Enter your answer in number:";
+	cin>>pro.choice2;
+	
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You answer wrong. Try harder in the next question\n";
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2 ;
+		}
 	}
-	if (choice2<1||choice2>2)
+	
+	
+	
+	cout<<"Eight, what diameter Mahogany tree could grown so far?"
+	<<"1. reduce cholestrol.\n2. reduce nausea."
+	<<"Enter your answer in number:";
+	cin>>pro.choice2;
+	
+	if (pro.choice2 >=1 || pro.choice2 <=2)
 	{
-		cout<<"You must enter between 1 and 2\n";
-		question(choice2);
+		if (pro.choice2<1||pro.choice2>2)
+		{
+			if (pro.choice2 == 1)
+			{
+				cout<<"You answer correctly. On to the next question.\n";
+			}
+			else if (pro.choice2 == 2 )
+			{
+				cout<<"You answer wrong. Try harder in the next question\n";
+			}
+			cout<<"You must enter between 1 and 2\n";
+			cin>>pro.choice2;
+		}
 	}
+	
+	
+	
+	/*
+	What is other function for Papyrus plant?
+	How many percent air pollution the mahogany tree could reduce?
+	*/
 }
