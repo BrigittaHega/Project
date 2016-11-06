@@ -16,7 +16,7 @@ void question(Project);
 
 int main()
 {
-	Project project;
+	Project project;//For calling struct
 	
 	const int PAPYRUS_CHOICE = 1,
     MAHOGANY_CHOICE = 2,
@@ -37,7 +37,7 @@ int main()
 		}
 		if (project.choice != QUIT_CHOICE)
 	
-	// Display the membership fees.
+	// What entered will be open one of this.
 		switch (project.choice)
 		{
 			case PAPYRUS_CHOICE: //(?)
@@ -105,7 +105,7 @@ void moss()//Contains short information about moss plant
 	<<"It also store water and absorb pollutan in air."<<endl<<endl;
 }
 
-void question(Project pro)
+void question(Project pro)//Called the struct
 {
 	cout<<"\n\nThere is ten questions you need to answer. If you manage to answer all correctly, then you are paying attention to what written in the post.\n"
 	<<"Remember: there is no win or lose in this questionnaire. We just want to test your skill.\n\n ";
@@ -171,8 +171,6 @@ void question(Project pro)
 		}
 	}
 	
-	
-	
 	cout<<"Third, on what kind of enviroment can mahogany trees grow?\n"
 	<<"1. It has to be on fertile ground\n"
 	<<"2. It can grow on coarse ground or near the beach with briny water\n"
@@ -205,8 +203,6 @@ void question(Project pro)
 		}
 	}
 	
-	
-	
 	cout<<"Fourth, which plant CAN NOT filter polutan in air?\n"
 	<<"1. Papyrus.\n2. Moss.\n"
 	<<"Enter your answer in number:";
@@ -238,8 +234,6 @@ void question(Project pro)
 		}
 		
 	}
-	
-	
 	
 	cout<<"Fifth, where moss could grow?\n"
 	<<"1. On wet rainy area.\n2. Everywhere except dry place.\n"
@@ -336,8 +330,6 @@ void question(Project pro)
 		}
 	}
 	
-	
-	
 	cout<<"Eight, what diameter Mahogany tree could grown so far?\n"
 	<<"1. 125 centimeters.\n2. 150 centimeters.\n"
 	<<"Enter your answer in number:";
@@ -368,8 +360,6 @@ void question(Project pro)
 			}
 		}
 	}
-	
-
 	
 	cout<<"Nine, What is other function for Papyrus plant?\n"
 	<<"1. Smoking.\n2. Medicine.\n"
@@ -432,6 +422,4 @@ void question(Project pro)
 			}
 		}
 	}
-	
-	
 }
